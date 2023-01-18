@@ -7,14 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.organization.mvcproject.MGL_Task1.model.Game;
 
-//TODO 1.0  follow java class naming, improve class name
-//TODO 1.0  "javaGameService" service reference name is not necessary, remove it.
-@Service("javaGameService")
-public class Game_Service_Impl implements Game_Service {
+@Service
+public class GameImpl implements GameService {
 
 	/**
 	 * TODO 2.0 The class that interacts with persistent data is called a Data Access Object(DAO)
-	 *  or a Repository class. The private static list is mocking our persistance of games.
+	 *  or a Repository class. The private static list is mocking our persistence of games.
 	 *   
 	 *  Move this list, and methods operating on this list to an appropriately named package and class.
 	 */
@@ -74,7 +72,7 @@ public class Game_Service_Impl implements Game_Service {
 	}
 
 	public static void setGameId(Long gameId) {
-		Game_Service_Impl.gameId = gameId;
+		GameImpl.gameId = gameId;
 	}
 
 	public static Long getCompanyId() {
@@ -82,7 +80,7 @@ public class Game_Service_Impl implements Game_Service {
 	}
 
 	public static void setCompanyId(Long companyId) {
-		Game_Service_Impl.companyId = companyId;
+		GameImpl.companyId = companyId;
 	}
 
 	public static List<Game> getGames() {
@@ -90,7 +88,7 @@ public class Game_Service_Impl implements Game_Service {
 	}
 
 	public static void setGames(ArrayList<Game> games) {
-		Game_Service_Impl.games = games;
+		GameImpl.games = games;
 	}
 
 }

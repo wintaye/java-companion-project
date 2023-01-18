@@ -12,7 +12,7 @@ public class GameServiceImpl implements GameService {
 
 	/**
 	 * TODO 2.0 The class that interacts with persistent data is called a Data Access Object(DAO)
-	 *  or a Repository class. The private static list is mocking our persistance of games.
+	 *  or a Repository class. The private static list is mocking our persistence of games.
 	 *   
 	 *  Move this list, and methods operating on this list to an appropriately named package and class.
 	 */
@@ -60,4 +60,16 @@ public class GameServiceImpl implements GameService {
 		games.add(game);
 		return game;
 	}
+	
+	//calls to GameDAO to add
+	
+	//findById
+	
+	//updateGameById -- bind new game, save new game object as old game object 
+	
+	//deleteGameById
+	
+	
+	
+	
 }
