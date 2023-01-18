@@ -78,7 +78,6 @@
 		</dependency>
 
 
-		<!-- Logging TODO: upgrade logging to use log4j-slf4j-impl -->
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
 		<dependency>
     		<groupId>org.apache.logging.log4j</groupId>
