@@ -1,7 +1,8 @@
 //TODO 1.0   package naming convention, improve package declaration
-package com.organization.mvcproject.MGL_Task1.controller;
+package com.organization.mvcproject.GamesController;
 
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,14 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.organization.mvcproject.MGL_Task1.model.Game;
-import com.organization.mvcproject.MGL_Task1.model.Review;
-import com.organization.mvcproject.MGL_Task1.service.GameService;
-import com.organization.mvcproject.MGL_Task1.service.Game_Service;
+import com.organization.mvcproject.GameTask.model.Game;
+import com.organization.mvcproject.GameTask.model.Review;
+import com.organization.mvcproject.GameTask.service.GameService;
 
 //TODO 1.0  follow java class naming, improve class name
 @Controller
-public class MGL_Task1_Controller {
+public class GamesController {
 
 	@Autowired
 	private GameService gameService;
@@ -42,21 +42,14 @@ public class MGL_Task1_Controller {
 		if(review.getAuthor().equals("")) {
 			review.setAuthor("anonymous");
 		}
-	/**
-	 * TODO - Completed - 1.0 Rename the jsp view, to "reviewDetailPage" because what is the view the "result" of?
-	 * update games.jsp as well. 
-	 */
+	
 		return new ModelAndView("reviewDetailPage", "submittedReview", review);
 	}
 
 	
 	@RequestMapping(value = "/games", method = RequestMethod.GET)
 	public ModelAndView game() {
-		/**
-		 * TODO 1.0 Rename the jsp view, to "gamesPage" because it matches the URL triggering a circular view path error.
-		 * update games.jsp as well. 
-		 * SEE:  https://www.baeldung.com/spring-circular-view-path-error
-		 */
+	
 		return new ModelAndView("gamesPage", "command", new Game());
 	}
 

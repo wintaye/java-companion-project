@@ -1,14 +1,15 @@
-package com.organization.mvcproject.MGL_Task1.service;
+package com.organization.mvcproject.GameTask.service;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.organization.mvcproject.MGL_Task1.model.Game;
+import com.organization.mvcproject.GameTask.model.Game;
 
 @Service
-public class GameImpl implements GameService {
+public class GameServiceImpl implements GameService {
 
 	/**
 	 * TODO 2.0 The class that interacts with persistent data is called a Data Access Object(DAO)
@@ -72,7 +73,7 @@ public class GameImpl implements GameService {
 	}
 
 	public static void setGameId(Long gameId) {
-		GameImpl.gameId = gameId;
+		GameServiceImpl.gameId = gameId;
 	}
 
 	public static Long getCompanyId() {
@@ -80,7 +81,7 @@ public class GameImpl implements GameService {
 	}
 
 	public static void setCompanyId(Long companyId) {
-		GameImpl.companyId = companyId;
+		GameServiceImpl.companyId = companyId;
 	}
 
 	public static List<Game> getGames() {
@@ -88,7 +89,7 @@ public class GameImpl implements GameService {
 	}
 
 	public static void setGames(ArrayList<Game> games) {
-		GameImpl.games = games;
+		GameServiceImpl.games = games;
 	}
 
 }
