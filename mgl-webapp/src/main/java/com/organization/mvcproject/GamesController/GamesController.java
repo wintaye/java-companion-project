@@ -19,7 +19,6 @@ import com.organization.mvcproject.GameTask.model.Game;
 import com.organization.mvcproject.GameTask.model.Review;
 import com.organization.mvcproject.GameTask.service.GameService;
 
-//TODO 1.0  follow java class naming, improve class name
 @Controller
 public class GamesController {
 
