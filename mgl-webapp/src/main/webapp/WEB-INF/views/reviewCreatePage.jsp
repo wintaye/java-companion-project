@@ -35,7 +35,7 @@
                         </tr>
                         <tr>
                             <td><label>Author</label></td>
-                            <td><input type="text" name="author" class="form-control" placeholder="Your name (leave black to leave an anonymous review)"></input>
+                            <td><input type="text" name="author" class="form-control" placeholder="Your name (leave black to submit an anonymous review)"></input>
                             </td>
                         </tr>
                         <tr>
