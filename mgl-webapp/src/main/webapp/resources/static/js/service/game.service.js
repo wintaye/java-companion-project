@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GameTask_app').factory('GameService', ['$http', function($http) {
+angular.module('GameApp').factory('GameService', ['$http', function($http) {
 
 		var REST_SERVICE_URI = 'game/';
 

@@ -6,7 +6,7 @@
         <html>
         <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-        <script src="resources/static/js/app.js" /></script>
+        <script src="resources/static/js/game.module.js" /></script>
         <script src="resources/static/js/service/game.service.js"></script>
         <script src="resources/static/js/controller/game.controller.js"></script>
             <!-- Bootstrap CSS -->

@@ -1,11 +1,7 @@
 package com.organization.mvcproject.GameTask.model;
 
 public class Review {
-	
-	/**
-	 * TODO 1.0 java object member variable naming convention, 
-	 * one member declared here is not object oriented refactor it
-	 */
+
 	private String body;
 	private String author;
 	private Integer rating;

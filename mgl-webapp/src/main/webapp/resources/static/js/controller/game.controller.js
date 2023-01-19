@@ -4,9 +4,9 @@ angular.module('GameApp').controller('GameController',
 		[ 'GameService', function(GameService) {
 			var self = this;
 			self.game = {
-				gameId : '',
-				gameName : '',
-				gameGenre : ''
+				id : '',
+				name : '',
+				genre : ''
 			};
 			self.games = [];
 
