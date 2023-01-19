@@ -6,8 +6,8 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
         <script src="resources/static/js/app.js" /></script>
-        <script src="resources/static/js/service/GameTask.service.js"></script>
-        <script src="resources/static/js/controller/GameTask.controller.js"></script>
+        <script src="resources/static/js/service/game.service.js"></script>
+        <script src="resources/static/js/controller/game.controller.js"></script>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -26,7 +26,7 @@
     	<link rel="icon" type="image/png" sizes="16x16" href="resources/static/images/favicon-16x16.png">
     </head>
 
-    <body ng-app="GameTask_app" class="ng-cloak">
+    <body ng-app="GameApp" class="ng-cloak">
         <mgl:myNav/>
         <br>
         <div class="container" ng-controller="GameController as gamesController">

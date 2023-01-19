@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GameTask_app').controller('GameController',
+angular.module('GameApp').controller('GameController',
 		[ 'GameService', function(GameService) {
 			var self = this;
 			self.game = {
