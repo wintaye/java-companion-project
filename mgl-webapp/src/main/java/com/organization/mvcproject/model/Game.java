@@ -1,6 +1,4 @@
-package com.organization.mvcproject.GameTask.model;
-
-import org.springframework.stereotype.Component;
+package com.organization.mvcproject.model;
 
 public class Game {
 

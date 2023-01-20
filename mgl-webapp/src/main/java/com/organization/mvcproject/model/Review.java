@@ -1,4 +1,4 @@
-package com.organization.mvcproject.GameTask.model;
+package com.organization.mvcproject.model;
 
 public class Review {
 

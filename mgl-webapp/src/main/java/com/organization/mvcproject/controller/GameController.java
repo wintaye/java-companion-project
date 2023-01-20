@@ -1,5 +1,5 @@
 
-package com.organization.mvcproject.GamesController;
+package com.organization.mvcproject.controller;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.organization.mvcproject.GameTask.model.Game;
-import com.organization.mvcproject.GameTask.model.Review;
-import com.organization.mvcproject.GameTask.service.GameService;
+import com.organization.mvcproject.model.Game;
+import com.organization.mvcproject.model.Review;
+import com.organization.mvcproject.service.GameService;
 
 @Controller
-public class GamesController {
+public class GameController {
 
 	@Autowired
 	private GameService gameService;

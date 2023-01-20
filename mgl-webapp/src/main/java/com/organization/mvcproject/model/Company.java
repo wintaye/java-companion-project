@@ -1,5 +1,5 @@
 
-package com.organization.mvcproject.GameTask.model;
+package com.organization.mvcproject.model;
 
 import java.util.List;
 
