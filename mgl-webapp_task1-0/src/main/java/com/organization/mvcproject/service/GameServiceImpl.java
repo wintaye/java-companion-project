@@ -61,14 +61,6 @@ public class GameServiceImpl implements GameService {
 		return game;
 	}
 	
-	//calls to GameDAO to add
-	
-	//findById
-	
-	//updateGameById -- bind new game, save new game object as old game object 
-	
-	//deleteGameById
-	
 	
 	
 	

@@ -2,7 +2,6 @@ package com.organization.mvcproject.GameTask.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class Game {
 
 	private Long id;

@@ -1,4 +1,4 @@
-//TODO 1.0   package naming convention, improve package declaration
+
 package com.organization.mvcproject.GamesController;
 
 import java.util.List;
@@ -10,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,18 +27,18 @@ public class GamesController {
 	@Autowired
 	private GameService gameService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping(value = "/")
 	public String home() {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/review", method = RequestMethod.GET)
+	@GetMapping(value="/review")
 	public ModelAndView review() {
 
 		return new ModelAndView("reviewCreatePage", "command", new Review());
 	}
 
-	@RequestMapping(value = "/addReview", method = RequestMethod.POST)
+	@PostMapping(value="/addReview")
 	public ModelAndView addReview(Review review, ModelMap model) {
 		if(review.getAuthor().equals("")) {
 			review.setAuthor("anonymous");
@@ -46,24 +48,24 @@ public class GamesController {
 	}
 
 	
-	@RequestMapping(value = "/games", method = RequestMethod.GET)
-	public ModelAndView game() {
+	@GetMapping(value = "/games")
+	public String game() {
 	
-		return new ModelAndView("gamesPage", "command", new Game());
+		return "gamesPage";
 	}
 
 	/**
 	 * TODO 2.0 (Separation of concerns) consider moving all controller endpoints that return a ResponseEntity into a @RestController.
 	 */
 	
-	//TODO 1.0 RequestMapping URL should follow RESTful.
-	@RequestMapping(value = "/game/getAll", method = RequestMethod.GET)
+
+	@GetMapping(value="/game")
 	public ResponseEntity<List<Game>> fetchAllGames() {
 		return new ResponseEntity<List<Game>>(gameService.retrieveAllGames(), HttpStatus.OK);
 	}
 
-	//TODO 1.0 RequestMapping URL should follow RESTful convention
-	@RequestMapping(value = "/createGame", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+
+	@RequestMapping(value = "/game", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> createGame(@RequestBody Game game) {
 		gameService.saveGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
