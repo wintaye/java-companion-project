@@ -7,8 +7,11 @@ import com.organization.mvcproject.model.Game;
 
 public interface GameService {
 
+	Game saveGame(Game game);
+	
 	List<Game> retrieveAllGames();
 
-	Game saveGame(Game game);
-
+	Game findGameById(Long id);
+	
+	Boolean deleteGame(Long id);
 }
