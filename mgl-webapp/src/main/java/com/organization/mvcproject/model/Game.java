@@ -5,6 +5,8 @@ public class Game {
 	private Long id;
 	private String name;
 	private String genre;
+	
+	
 	public Long getId() {
 		return id;
 	}
