@@ -1,4 +1,4 @@
-package com.organization.mvcproject.dao;
+package com.organization.mvcproject.repository;
 
 import java.util.ArrayList;
 import java.util.List;
