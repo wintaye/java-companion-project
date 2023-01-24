@@ -1,5 +1,7 @@
 package com.organization.mvcproject.model;
 
+import java.util.Objects;
+
 public class Game {
 
 	private Long id;
@@ -26,6 +28,30 @@ public class Game {
 		this.genre = genre;
 	}
 	
+	
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Game game = (Game) o;
+        return id == game.id && name.equals(game.name) && genre.equals(game.genre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+          "id=" + id +
+          ", name='" + name + '\'' +
+           ", genre='" + genre + '\'' +
+          '}';
+    }
 	
 	
 }

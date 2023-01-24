@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.organization.mvcproject.model.Game;
 
 @Repository
-public class MockGameDAO {
+public class GameRepository {
 	
 	private static Long gameId = new Long(0);
 	private static Long companyId = new Long(0);
-	private static List<Game> games = new ArrayList<Game>();
+	public static List<Game> games = new ArrayList<Game>();
 
 	static {
 		games = populateGames();
@@ -41,6 +41,7 @@ public class MockGameDAO {
 
 		return games;
 	}
+		
 	
 
 		public Game saveGame(Game game) {
@@ -71,6 +72,8 @@ public class MockGameDAO {
 		public boolean deleteGame(Long id) {
 			return games.removeIf(g -> id.equals(g.getId()));
 		}
+
+
 		
 		//TODO filter by game genre, add to list if .equals(game.getGenre())
 		//TODO search by keyword 
