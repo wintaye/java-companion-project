@@ -15,21 +15,20 @@ public class GameServiceImpl implements GameService {
 	private MockGameDAO mockGameDAO;
 	
 
+	public Game saveGame(Game game) {
+		return mockGameDAO.saveGame(game);
+	}
 
 	public List<Game> retrieveAllGames() {
 		return mockGameDAO.retrieveAllGames();
 	}
 
-	public Game saveGame(Game game) {
-		return mockGameDAO.saveGame(game);
-	}
-	
-	public boolean deleteGame(Long id) {
-		return mockGameDAO.deleteGame(id);
-	}
-	
 	public Game findGameById(Long id) {
 		return mockGameDAO.findGameById(id);
+	}
+	
+	public Boolean deleteGame(Long id) {
+		return mockGameDAO.deleteGame(id);
 	}
 	
 	
