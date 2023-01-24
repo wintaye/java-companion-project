@@ -42,24 +42,32 @@ public class MockGameDAO {
 		return games;
 	}
 	
-	
 
 		public Game saveGame(Game game) {
-			game.setId(++gameId);
-			games.add(game);
-			return game;
-	}
+			if(game.getId() != null) {
+				//TODO update game
+				return game;
+			} else {
+				game.setId(++gameId);
+				games.add(game);
+				return game;
+			}
+			
+		}
+		
 		public List<Game> retrieveAllGames() {
-			// TODO Auto-generated method stub
-			return null;
+			return games;
 		}
-		public boolean deleteGame(Long id) {
-			// TODO Auto-generated method stub
-			return false;
-		}
+		
 		public Game findGameById(Long id) {
-			// TODO Auto-generated method stub
-			return null;
+			return games.stream().filter(g -> id.equals(g.getId())).findAny().orElse(null);
+			
 		}
+		
+		public boolean deleteGame(Long id) {
+			return games.removeIf(g -> id.equals(g.getId()));
+		}
+		
+		//TODO filter by game genre, add to list if .equals(game.getGenre())
 
 }
