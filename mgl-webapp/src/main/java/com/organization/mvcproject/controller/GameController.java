@@ -23,8 +23,6 @@ import com.organization.mvcproject.service.GameService;
 @Controller
 public class GameController {
 
-	@Autowired
-	private GameService gameService;
 
 	@GetMapping(value = "/")
 	public String home() {
