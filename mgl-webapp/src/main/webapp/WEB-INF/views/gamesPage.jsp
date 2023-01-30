@@ -71,11 +71,14 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading text-light"><span class="lead">List of all current games</span></div>
                 <div class="tablecontainer">
+                <form>
                     <table class="table table-dark table-striped text-light">
                         <thead>
                             <tr>
                                 <th>Game Name</th>
                                 <th>Game Genre</th>
+                                <th>Update?</th>
+                                <th>Delete?</th>
                                 <th width="20%"></th>
                             </tr>
                         </thead>
@@ -83,11 +86,15 @@
                             <tr ng-repeat="currentGame in gamesController.games">
                                 <td><span ng-bind="currentGame.name"></span></td>
                                 <td><span ng-bind="currentGame.genre"></span></td>
+                                <td><input type="submit" ng-value="Update" class="btn btn-warning" id="currentGame.id"></td>
+                                <td><input type="submit" ng-value="Delete" class="btn btn-danger" id="currentGame.id"></td>
                                 <td>
                                 </td>
                             </tr>
+                           
                         </tbody>
                     </table>
+                    </form>
                 </div>
             </div>
         </div>

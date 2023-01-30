@@ -33,4 +33,11 @@ public class GameRestController {
 		gameService.saveGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
+	
+	
+	@RequestMapping(value = "/game", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> deleteGame(@RequestBody Long id) {
+		gameService.deleteGame(id);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
 }
