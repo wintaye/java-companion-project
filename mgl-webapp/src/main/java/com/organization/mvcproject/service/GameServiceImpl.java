@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.organization.mvcproject.model.Game;
-import com.organization.mvcproject.repository.GameRepository;
+import com.organization.mvcproject.api.model.Game;
+import com.organization.mvcproject.api.service.GameService;
+import com.organization.mvcproject.dao.GameRepository;
 
 @Service
 public class GameServiceImpl implements GameService {
 
+	//dao
 	@Autowired
 	private GameRepository gameRepository;
 	
@@ -30,10 +32,5 @@ public class GameServiceImpl implements GameService {
 	public Boolean deleteGame(Long id) {
 		return gameRepository.deleteGame(id);
 	}
-	
-	
-	
-
-
 
 }

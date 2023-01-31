@@ -29,7 +29,7 @@
     <body ng-app="GameApp" class="ng-cloak">
         <mgl:myNav/>
         <br>
-        <div class="container" ng-controller="GameController as gamesController">
+        <div class="container" ng-controller="GameRestController as gamesController">
             <div class="panel panel-default">
                 <div class="panel-heading text-light"><span class="lead">Game Registration Form </span></div>
                 <div class="formcontainer">
@@ -67,17 +67,19 @@
                     </form>
                 </div>
             </div>
-            <div class="panel panel-default">
+       
+               
+                 <div class="panel panel-default">
                 <!-- Default panel contents -->
                 <div class="panel-heading text-light"><span class="lead">List of all current games</span></div>
-                <div class="tablecontainer">
-                <form>
-                    <table class="table table-dark table-striped text-light">
+                <div class="tablecontainer">    
+
+	<table class="table table-dark table-striped text-light">
                         <thead>
                             <tr>
                                 <th>Game Name</th>
                                 <th>Game Genre</th>
-                                <th>Update?</th>
+                              <!--    <th>Update?</th> -->
                                 <th>Delete?</th>
                                 <th width="20%"></th>
                             </tr>
@@ -86,18 +88,17 @@
                             <tr ng-repeat="currentGame in gamesController.games">
                                 <td><span ng-bind="currentGame.name"></span></td>
                                 <td><span ng-bind="currentGame.genre"></span></td>
-                                <td><input type="submit" ng-value="Update" class="btn btn-warning" id="currentGame.id"></td>
-                                <td><input type="submit" ng-value="Delete" class="btn btn-danger" id="currentGame.id"></td>
-                                <td>
-                                </td>
+                              <!-- <td><button data-ng-click="gamesController.updateGame(currentGame)" ng-value="Update" class="btn btn-warning"></td> --> 
+                                <td><button data-ng-click="gamesController.deleteGame(currentGame)" class="btn btn-danger">Delete</button></td>
                             </tr>
                            
                         </tbody>
-                    </table>
-                    </form>
+                    </table> 
+					    
                 </div>
             </div>
         </div>
+               
 
     </body>
     <script type="text/javascript"></script>
