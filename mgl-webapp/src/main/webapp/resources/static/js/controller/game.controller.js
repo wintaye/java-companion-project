@@ -16,8 +16,9 @@ angular.module('GameApp').controller('GameRestController',
 				});
 			}
 
-			self.addGame = function(){
-				return GameService.createGame(self.game).then( function() {
+			self.saveOrUpdateGame = function(){
+				return GameService.saveOrUpdateGame(self.game).then( function() {
+				self.clearForm;
 				self.fetchAllGames();
 				});
 			}
@@ -37,7 +38,7 @@ angular.module('GameApp').controller('GameRestController',
 				});
 			}
 			
-						self.clearGame = function(){
+			self.clearForm = function(){
 				self.game = {};
 			}
 			

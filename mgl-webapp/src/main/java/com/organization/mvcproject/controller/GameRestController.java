@@ -34,7 +34,7 @@ public class GameRestController {
 	//@RequestMapping(value = "/game", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@PostMapping(value = "/game", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> createGame(@RequestBody Game game) {
-		gameService.saveGame(game);
+		gameService.saveOrUpdateGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 	
@@ -47,7 +47,7 @@ public class GameRestController {
 	
 	@PutMapping(value = "/game", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateGame(@RequestBody GameImpl game){
-		return new ResponseEntity<>(gameService.saveGame(game), HttpStatus.OK);
+		return new ResponseEntity<>(gameService.saveOrUpdateGame(game), HttpStatus.OK);
 	}
 	
 	

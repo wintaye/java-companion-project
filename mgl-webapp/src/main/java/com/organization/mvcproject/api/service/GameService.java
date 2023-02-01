@@ -8,7 +8,7 @@ import com.organization.mvcproject.api.model.Game;
 public interface GameService {
 
 	
-	Game saveGame(Game game);
+	Game saveOrUpdateGame(Game game);
 	
 	List<Game> retrieveAllGames();
 

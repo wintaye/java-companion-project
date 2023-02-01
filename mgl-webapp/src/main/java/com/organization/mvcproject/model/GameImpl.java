@@ -2,6 +2,7 @@ package com.organization.mvcproject.model;
 
 import java.util.Objects;
 
+
 import org.springframework.stereotype.Component;
 
 import com.organization.mvcproject.api.model.Game;

@@ -45,7 +45,7 @@ public class GameRepository implements GameDao{
 		
 	
 
-		public Game saveGame(Game game) {
+		public Game saveOrUpdateGame(Game game) {
 			if(game.getId() != null) {
 				//find original game obj in list by id
 				Game gameToUpdate = findGameById(game.getId());
@@ -74,8 +74,6 @@ public class GameRepository implements GameDao{
 		public Boolean deleteGame(Long id) {
 			return games.removeIf(g -> id.equals(g.getId()));
 		}
-
-
 
 
 		

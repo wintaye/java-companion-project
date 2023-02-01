@@ -33,7 +33,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-light"><span class="lead">Game Registration Form </span></div>
                 <div class="formcontainer">
-                    <form ng-submit="gamesController.addGame()" name="gameForm" class="form-horizontal">
+                    <form ng-submit="gamesController.saveOrUpdateGame()" name="gameForm" class="form-horizontal">
                         <input type="hidden" ng-model="gamesController.game.id" />
                         <div class="row">
                             <div class="form-group col-md-12">
@@ -61,7 +61,9 @@
 
                         <div class="row">
                             <div class="form-actions floatRight">
-                                <input type="submit" value="Add" class="btn btn-primary btn-sm">
+                            	<input ng-if="!(gamesController.game.id)" type="submit" value="Add" class="btn btn-primary btn-sm">
+                                <button ng-if="(gamesController.game.id)" type="submit" class="btn btn-primary btn-sm">Update</button>
+                                <button ng-click="gamesController.clearForm()" type="submit" class="btn btn-secondary btn-sm">Clear</button>
                             </div>
                         </div>
                     </form>
@@ -79,17 +81,16 @@
                             <tr>
                                 <th>Game Name</th>
                                 <th>Game Genre</th>
-                              <!--    <th>Update?</th> -->
-                                <th>Delete?</th>
-                                <th width="20%"></th>
+                              	<th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="currentGame in gamesController.games">
                                 <td><span ng-bind="currentGame.name"></span></td>
                                 <td><span ng-bind="currentGame.genre"></span></td>
-                              <!-- <td><button data-ng-click="gamesController.updateGame(currentGame)" ng-value="Update" class="btn btn-warning"></td> --> 
-                                <td><button data-ng-click="gamesController.deleteGame(currentGame)" class="btn btn-danger">Delete</button></td>
+                              	<td><button ng-click="gamesController.selectGame(currentGame)" class="btn btn-warning btn-sm">Select</button></td> 
+                                <td><button ng-click="gamesController.deleteGame(currentGame)" class="btn btn-danger btn-sm">Delete</button></td>
                             </tr>
                            
                         </tbody>

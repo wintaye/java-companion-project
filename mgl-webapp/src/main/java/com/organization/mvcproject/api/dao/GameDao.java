@@ -8,7 +8,7 @@ import com.organization.mvcproject.model.GameImpl;
 
 public interface GameDao {
 	
-	Game saveGame(Game game);
+	Game saveOrUpdateGame(Game game);
 	
 	List<Game> retrieveAllGames();
 

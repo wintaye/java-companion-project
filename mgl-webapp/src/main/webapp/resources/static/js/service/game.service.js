@@ -7,7 +7,7 @@ angular.module('GameApp').factory('GameService', ['$http', '$log', function($htt
 		var factory = {
 			fetchAllGames : fetchAllGames,
 			updateGame: updateGame,
-			createGame: createGame,
+			saveOrUpdateGame: saveOrUpdateGame,
 			deleteGame: deleteGame,
 			
 		};
@@ -22,7 +22,7 @@ angular.module('GameApp').factory('GameService', ['$http', '$log', function($htt
 			);
 		}
 
-		function createGame(game) {
+		function saveOrUpdateGame(game) {
 			return $http.post(REST_SERVICE_URI, game).then(function(response) {
 					return response.data;
 				}

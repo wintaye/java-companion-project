@@ -17,8 +17,8 @@ public class GameServiceImpl implements GameService {
 	private GameRepository gameRepository;
 	
 
-	public Game saveGame(Game game) {
-		return gameRepository.saveGame(game);
+	public Game saveOrUpdateGame(Game game) {
+		return gameRepository.saveOrUpdateGame(game);
 	}
 
 	public List<Game> retrieveAllGames() {
