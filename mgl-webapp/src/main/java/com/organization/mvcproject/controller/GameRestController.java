@@ -45,11 +45,11 @@ public class GameRestController {
 		return new ResponseEntity<>(gameService.deleteGame(id), HttpStatus.OK);
 	}
 	
-//	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<Void> updateGame(@RequestBody GameImpl game){
-//		gameService.saveOrUpdateGame(game);
-//		return new ResponseEntity<Void>(HttpStatus.OK);
-//	}
+	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> updateGame(@RequestBody GameImpl game){
+		Game gameToUpdate = gameService.saveOrUpdateGame(game);
+		return new ResponseEntity<>((GameImpl) gameToUpdate, HttpStatus.OK);
+	}
 	
 	
 }

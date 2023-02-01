@@ -38,7 +38,12 @@ angular.module('GameApp').controller('GameRestController',
 				self.game = {};
 			}
 			
-
+			self.updateGame = function(){
+			  return GameService.updateGame(self.game).then( function() {
+				 self.fetchAllGames(); 
+				});	
+			}
+			
 			self.fetchAllGames();
 			
 		} ]);
