@@ -8,6 +8,7 @@ angular.module('GameApp').controller('GameRestController',
 				name : '',
 				genre : ''
 			};
+			
 			self.games = [];
 
 			self.fetchAllGames = function(){
@@ -16,21 +17,16 @@ angular.module('GameApp').controller('GameRestController',
 				});
 			}
 
-			self.saveOrUpdateGame = function(){
-				return GameService.saveOrUpdateGame(self.game).then( function() {
-				self.clearForm;
+			self.addGame = function(){
+				return GameService.createGame(self.game).then( function() {
+				self.game = {};
 				self.fetchAllGames();
 				});
 			}
-
-			self.updateGame = function() {
-				return GameService.saveGame(self.game).then( function() {
-					self.fetchAllGames();
-				});
-			}
-
-			self.fetchAllGames();
 			
+			self.selectGame = function(selectedGame){
+				self.game = angular.copy(selectedGame);
+			}
 			
 			self.deleteGame = function(gameToDelete){
 				return GameService.deleteGame(gameToDelete.id).then( function() {
@@ -42,10 +38,7 @@ angular.module('GameApp').controller('GameRestController',
 				self.game = {};
 			}
 			
-			self.selectGame = function(selectedGame){
-				self.game = angular.copy(selectedGame);
-			}
-			
-			
+
+			self.fetchAllGames();
 			
 		} ]);

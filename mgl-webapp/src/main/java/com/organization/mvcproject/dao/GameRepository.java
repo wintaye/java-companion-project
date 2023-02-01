@@ -13,7 +13,7 @@ import com.organization.mvcproject.model.GameImpl;
 public class GameRepository implements GameDao{
 	
 	private static Long gameId = new Long(0);
-	public static List<GameImpl> games = new ArrayList<>();
+	private static List<GameImpl> games = new ArrayList<>();
 
 	static {
 		games = populateGames();

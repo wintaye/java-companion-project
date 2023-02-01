@@ -6,8 +6,7 @@ angular.module('GameApp').factory('GameService', ['$http', '$log', function($htt
 
 		var factory = {
 			fetchAllGames : fetchAllGames,
-			updateGame: updateGame,
-			saveOrUpdateGame: saveOrUpdateGame,
+			createGame: saveOrUpdateGame,
 			deleteGame: deleteGame,
 			
 		};
@@ -29,12 +28,12 @@ angular.module('GameApp').factory('GameService', ['$http', '$log', function($htt
 			);
 		}
 		
-		function updateGame(game) {
+/*		function updateGame(game) {
 			return $http.put(REST_SERVICE_URI, game).then(function(response) {
 					return response.data;
 				}
 			);
-		}
+		}*/
 		
 		function deleteGame(id) {
 			return $http.delete(REST_SERVICE_URI + id).then(function(response) {

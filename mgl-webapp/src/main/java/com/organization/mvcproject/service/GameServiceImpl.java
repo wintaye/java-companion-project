@@ -16,19 +16,22 @@ public class GameServiceImpl implements GameService {
 	@Autowired
 	private GameRepository gameRepository;
 	
-
+	@Override
 	public Game saveOrUpdateGame(Game game) {
 		return gameRepository.saveOrUpdateGame(game);
 	}
 
+	@Override
 	public List<Game> retrieveAllGames() {
 		return gameRepository.retrieveAllGames();
 	}
 
+	@Override
 	public Game findGameById(Long id) {
 		return gameRepository.findGameById(id);
 	}
 	
+	@Override
 	public Boolean deleteGame(Long id) {
 		return gameRepository.deleteGame(id);
 	}
