@@ -24,9 +24,9 @@ import com.organization.mvcproject.model.GameImpl;
 @RestController
 public class GameController {
 
-
 	@Autowired
 	private GameService gameService;
+
 
 //	@GetMapping(value = "/getAll")
 //	public ResponseEntity<List<Game>> fetchAllGames(@RequestParam(required = false) String genre) {
