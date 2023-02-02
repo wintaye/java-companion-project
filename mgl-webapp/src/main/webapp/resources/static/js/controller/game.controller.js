@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('GameApp').controller('GameRestController',
+angular.module('GameApp').controller('GameController',
 		[ 'GameService', function(GameService) {
 			var self = this;
 			self.game = {
@@ -38,12 +38,13 @@ angular.module('GameApp').controller('GameRestController',
 				self.game = {};
 			}
 			
+			self.fetchAllGames();
+			
 			self.updateGame = function(){
 			  return GameService.updateGame(self.game).then( function() {
 				 self.fetchAllGames(); 
 				});	
 			}
 			
-			self.fetchAllGames();
 			
 		} ]);

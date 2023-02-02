@@ -21,7 +21,7 @@ import com.organization.mvcproject.model.GameImpl;
 
 @RequestMapping(value = "/game")
 @RestController
-public class GameRestController {
+public class GameController {
 
 
 	@Autowired
@@ -39,17 +39,17 @@ public class GameRestController {
 		return new ResponseEntity<>((GameImpl) createdGame, HttpStatus.CREATED);
 	}
 	
+	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> updateGame(@RequestBody GameImpl game){
+		return new ResponseEntity<>(gameService.saveOrUpdateGame(game), HttpStatus.OK);
+	}
+	
 	
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<?> deleteGame(@PathVariable("id") Long id) {
 		return new ResponseEntity<>(gameService.deleteGame(id), HttpStatus.OK);
 	}
 	
-	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> updateGame(@RequestBody GameImpl game){
-		Game gameToUpdate = gameService.saveOrUpdateGame(game);
-		return new ResponseEntity<>((GameImpl) gameToUpdate, HttpStatus.OK);
-	}
 	
 	
 }

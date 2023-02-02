@@ -51,7 +51,7 @@ public class GameRepository implements GameDao{
 				Game gameToUpdate = findGameById(game.getId());
 				//replace original game obj with new game obj (same id, same location in list)
 				int gameToUpdateIndex = games.indexOf(gameToUpdate);
-				games.set(gameToUpdateIndex, (GameImpl) gameToUpdate);
+				games.set(gameToUpdateIndex, (GameImpl) game);
 				return game;
 			} else {
 				game.setId(++gameId);

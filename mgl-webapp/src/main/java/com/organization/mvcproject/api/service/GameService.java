@@ -15,4 +15,5 @@ public interface GameService {
 	Game findGameById(Long id);
 	
 	Boolean deleteGame(Long id);
+
 }
