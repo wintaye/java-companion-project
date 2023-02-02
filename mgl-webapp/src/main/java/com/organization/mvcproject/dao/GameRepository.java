@@ -1,36 +1,38 @@
-package com.organization.mvcproject.repository;
+package com.organization.mvcproject.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
-import com.organization.mvcproject.model.Game;
+import com.organization.mvcproject.api.dao.GameDao;
+import com.organization.mvcproject.api.model.Game;
+import com.organization.mvcproject.model.GameImpl;
 
 @Repository
-public class GameRepository {
+public class GameRepository implements GameDao{
 	
 	private static Long gameId = new Long(0);
-	private static Long companyId = new Long(0);
-	public static List<Game> games = new ArrayList<Game>();
+	private static List<GameImpl> games = new ArrayList<>();
 
 	static {
 		games = populateGames();
 	}
 
-	private static List<Game> populateGames() {
+	private static List<GameImpl> populateGames() {
 
-		Game game1 = new Game();
+		GameImpl game1 = new GameImpl();
 		game1.setId(++gameId);
 		game1.setGenre("Sport");
 		game1.setName("Rocket League");
 
-		Game game2 = new Game();
+		GameImpl game2 = new GameImpl();
 		game2.setId(++gameId);
 		game2.setGenre("Shooter");
 		game2.setName("Halo 3");
 
-		Game game3 = new Game();
+		GameImpl game3 = new GameImpl();
 		game3.setId(++gameId);
 		game3.setGenre("MMORPG");
 		game3.setName("Runescape");
@@ -44,39 +46,40 @@ public class GameRepository {
 		
 	
 
-		public Game saveGame(Game game) {
+		public Game saveOrUpdateGame(Game game) {
 			if(game.getId() != null) {
-				//find original game obj in list by id
 				Game gameToUpdate = findGameById(game.getId());
-				//replace original game obj with new game obj (same id, same location in list)
+				//replace original obj with new obj at same index in games
+				if(gameToUpdate != null) {
 				int gameToUpdateIndex = games.indexOf(gameToUpdate);
-				games.set(gameToUpdateIndex, gameToUpdate);
+				games.set(gameToUpdateIndex, (GameImpl) game);
 				return game;
-			} else {
-				game.setId(++gameId);
-				games.add(game);
-				return game;
+				}
 			}
+				game.setId(++gameId);
+				games.add((GameImpl) game);
+				return game;
 			
 		}
-		
+			
 		public List<Game> retrieveAllGames() {
-			return games;
+			return List.copyOf(games);
 		}
 		
+		@Override
 		public Game findGameById(Long id) {
 			return games.stream().filter(g -> id.equals(g.getId())).findAny().orElse(null);
 			
 		}
 		
-		public boolean deleteGame(Long id) {
+		public Boolean deleteGame(Long id) {
 			return games.removeIf(g -> id.equals(g.getId()));
 		}
 
-
+		public List<Game> retrieveGamesByGenre(String genre){
+			return games.stream().filter(game -> genre.equals(game.getGenre())).collect(Collectors.toList());
+		}
 		
-		//TODO filter by game genre, add to list if .equals(game.getGenre())
-		//TODO search by keyword 
 		
 		
 
