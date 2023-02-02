@@ -2,6 +2,7 @@ package com.organization.mvcproject.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
@@ -47,20 +48,20 @@ public class GameRepository implements GameDao{
 
 		public Game saveOrUpdateGame(Game game) {
 			if(game.getId() != null) {
-				//find original game obj in list by id
 				Game gameToUpdate = findGameById(game.getId());
-				//replace original game obj with new game obj (same id, same location in list)
+				//replace original obj with new obj at same index in games
+				if(gameToUpdate != null) {
 				int gameToUpdateIndex = games.indexOf(gameToUpdate);
 				games.set(gameToUpdateIndex, (GameImpl) game);
 				return game;
-			} else {
+				}
+			}
 				game.setId(++gameId);
 				games.add((GameImpl) game);
 				return game;
-			}
 			
 		}
-		
+			
 		public List<Game> retrieveAllGames() {
 			return List.copyOf(games);
 		}
@@ -75,10 +76,10 @@ public class GameRepository implements GameDao{
 			return games.removeIf(g -> id.equals(g.getId()));
 		}
 
-
+		public List<Game> retrieveGamesByGenre(String genre){
+			return games.stream().filter(game -> genre.equals(game.getGenre())).collect(Collectors.toList());
+		}
 		
-		//TODO filter by game genre, add to list if .equals(game.getGenre())
-		//TODO search by keyword 
 		
 		
 

@@ -16,4 +16,5 @@ public interface GameDao {
 	
 	Boolean deleteGame(Long id);
 
+	List<Game> retrieveGamesByGenre(String genre);
 }

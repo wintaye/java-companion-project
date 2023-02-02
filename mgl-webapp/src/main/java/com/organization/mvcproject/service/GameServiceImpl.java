@@ -36,5 +36,10 @@ public class GameServiceImpl implements GameService {
 	public Boolean deleteGame(Long id) {
 		return gameRepository.deleteGame(id);
 	}
+	
+	@Override
+	public List<Game> retrieveGamesByGenre(String genre) {
+		return gameRepository.retrieveGamesByGenre(genre);
+	}
 
 }

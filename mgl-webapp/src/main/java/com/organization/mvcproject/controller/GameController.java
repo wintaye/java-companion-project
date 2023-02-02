@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.organization.mvcproject.api.model.Game;
@@ -27,11 +28,18 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 
+//	@GetMapping(value = "/getAll")
+//	public ResponseEntity<List<Game>> fetchAllGames(@RequestParam(required = false) String genre) {
+//		if(genre != null) {
+//			return new ResponseEntity<>(gameService.retrieveGamesByGenre(genre), HttpStatus.OK);
+//		}
+//		return new ResponseEntity<List<Game>>(gameService.retrieveAllGames(), HttpStatus.OK);
+//	}
+
 	@GetMapping(value = "/getAll")
 	public ResponseEntity<List<Game>> fetchAllGames() {
 		return new ResponseEntity<List<Game>>(gameService.retrieveAllGames(), HttpStatus.OK);
 	}
-
 
 	@PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> createGame(@RequestBody GameImpl game) {
