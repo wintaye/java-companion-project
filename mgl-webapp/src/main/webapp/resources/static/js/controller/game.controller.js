@@ -10,8 +10,8 @@ angular.module('GameApp').controller('GameController',
 			};
 			
 			self.games = [];
-			self.genres = [{name: 'All'}]; 
-			self.selectedGenre = 'All';
+			/*self.genres = [{name: 'All'}]; 
+			self.selectedGenre = 'All';*/
 
 	/*		self.fetchAllGames = function(){
 				if(self.selectedGenre == 'All'){
@@ -33,6 +33,7 @@ angular.module('GameApp').controller('GameController',
 			self.fetchAllGames = function(){
 				GameService.fetchAllGames().then(function(data) {
 					self.games = data;
+					self.clearForm(); 
 				});
 			}
 			
